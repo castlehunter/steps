@@ -6,7 +6,7 @@ const messages = [
   "Invest your new income 🤑",
 ];
 
-function App() {
+export default function App() {
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
 
@@ -35,18 +35,18 @@ function App() {
           </p>
 
           <div className="buttons">
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#fff" }}
+            <Button
+              bgColor="#7950f2"
+              textColor="white"
               onClick={handlePrevious}
-            >
-              Previous
-            </button>
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#fff" }}
+              text="Previous"
+            />
+            <Button
+              bgColor="#7950f2"
+              textColor="white"
               onClick={handleNext}
-            >
-              Next
-            </button>
+              text="Next"
+            />
           </div>
         </div>
       )}
@@ -54,4 +54,13 @@ function App() {
   );
 }
 
-export default App;
+function Button({ textColor, bgColor, onClick, text }) {
+  return (
+    <button
+      style={{ backgroundColor: bgColor, color: textColor }}
+      onClick={onClick}
+    >
+      {text}
+    </button>
+  );
+}
